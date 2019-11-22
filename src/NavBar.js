@@ -6,7 +6,7 @@ class NavBar extends React.Component {
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-          One Finger
+          <Link to="/"> One Finger</Link>
         </a>
         <button
           class="navbar-toggler"
@@ -22,7 +22,7 @@ class NavBar extends React.Component {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-              <Link to="/Games">
+              <Link to="/games">
                 <a class="nav-link" href="#">
                   Games
                 </a>
@@ -36,7 +36,23 @@ class NavBar extends React.Component {
               </Link>
             </li>
           </ul>
-          <span class="navbar-text">Navbar text with an inline element</span>
+          <form class="form-inline">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Username"
+              name="username"
+            />
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Password"
+              name="password"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Login
+            </button>
+          </form>
         </div>
       </nav>
     );

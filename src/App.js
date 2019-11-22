@@ -7,6 +7,9 @@ import ShowsContainer from "./containers/ShowsContainer";
 import HomeContainer from "./containers/HomeContainer";
 
 class App extends React.Component {
+  state = {
+    loggedIn: false
+  };
   render() {
     return (
       <div className="App">
