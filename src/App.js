@@ -6,22 +6,17 @@ import GamesContainer from "./containers/GamesContainer";
 import ShowsContainer from "./containers/ShowsContainer";
 import HomeContainer from "./containers/HomeContainer";
 
-class App extends React.Component {
-  state = {
-    loggedIn: false
-  };
-  render() {
-    return (
-      <div className="App">
-        <NavBar />
-        <Switch>
-          <Route path="/games" render={() => <GamesContainer />} />
-          <Route path="/shows" render={() => <ShowsContainer />} />
-          <Route path="/" component={HomeContainer} />
-        </Switch>
-      </div>
-    );
-  }
+function App(props) {
+  return (
+    <div className="App">
+      <NavBar />
+      <Switch>
+        <Route path="/games" render={() => <GamesContainer />} />
+        <Route path="/shows" render={() => <ShowsContainer />} />
+        <Route path="/" component={HomeContainer} />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
