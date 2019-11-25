@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal, Button, ButtonToolbar } from "react-bootstrap";
+import LogInModal from "./LogInModal";
 
 function NavBar(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">
@@ -35,23 +41,16 @@ function NavBar(props) {
             </Link>
           </li>
         </ul>
-        <form class="form-inline">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Username"
-            name="username"
-          />
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Password"
-            name="password"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <ButtonToolbar>
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            onClick={handleShow}
+          >
             Login
           </button>
-        </form>
+
+          <LogInModal show={show} onHide={handleClose} />
+        </ButtonToolbar>
       </div>
     </nav>
   );
