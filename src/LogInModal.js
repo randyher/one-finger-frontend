@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function LogInModal(props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log(username, password);
   return (
     <Modal
       {...props}
@@ -20,12 +24,22 @@ function LogInModal(props) {
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placeholder="Username" />
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              onChange={e => setUsername(e.target.value)}
+              value={username}
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={e => setPassword(e.target.value)}
+              value={password}
+            />
           </Form.Group>
 
           <Button variant="primary" type="submit">
