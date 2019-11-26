@@ -6,6 +6,14 @@ function LogInModal(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const onSubmit = e => {
+    e.preventDefault();
+    const userData = {
+      username,
+      password
+    };
+    console.log(userData);
+  };
   console.log(username, password);
   return (
     <Modal
@@ -21,7 +29,7 @@ function LogInModal(props) {
       </Modal.Header>
       <Modal.Body>
         <h4>Login</h4>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
             <Form.Control
